@@ -190,3 +190,10 @@ export type CursorChatProps = {
     }>
   ) => void;
 };
+
+export type CursorProps = {
+  color: string;
+  x: number;
+  y: number;
+  message: string;
+};
