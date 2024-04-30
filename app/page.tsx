@@ -13,6 +13,7 @@ import {
   handleCanvasObjectModified,
   handleCanvasObjectScaling,
   handleCanvasSelectionCreated,
+  handlePathCreated,
   handleResize,
   initializeFabric,
   renderCanvas,
@@ -47,7 +48,7 @@ export default function Home() {
     shapeData.objectId = objectId;
 
     const canvasObjects = storage.get("canvasObjects");
-    canvasObjects.set(objectId, shapeData);
+    canvasObjects?.set(objectId, shapeData);
   }, []);
 
   const [activeElement, setActiveElement] = useState<ActiveElement>({
@@ -164,6 +165,10 @@ export default function Home() {
 
     canvas.on("object:scaling", (options) => {
       handleCanvasObjectScaling({ options, setElementAttributes });
+    });
+
+    canvas.on("path:created", (options) => {
+      handlePathCreated({ options, syncShapeInStorage });
     });
 
     window.addEventListener("resize", () => {

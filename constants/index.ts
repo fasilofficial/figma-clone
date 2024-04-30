@@ -59,11 +59,11 @@ export const navElements = [
     value: "reset",
     name: "Reset",
   },
-  {
-    icon: "/assets/comments.svg",
-    value: "comments",
-    name: "Comments",
-  },
+  // {
+  //   icon: "/assets/comments.svg",
+  //   value: "comments",
+  //   name: "Comments",
+  // },
 ];
 
 export const defaultNavElement = {

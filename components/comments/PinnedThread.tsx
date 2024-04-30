@@ -13,7 +13,6 @@ type Props = {
 };
 
 export const PinnedThread = ({ thread, onFocus, ...props }: Props) => {
-  console.log(thread);
   // Open pinned threads that have just been created
   const startMinimized = useMemo(
     () => Number(new Date()) - Number(new Date(thread.createdAt)) > 100,

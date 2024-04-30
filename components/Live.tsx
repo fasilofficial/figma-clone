@@ -14,7 +14,6 @@ import {
   CursorState,
   LiveProps,
   Reaction,
-  ReactionEvent,
 } from "@/types/type";
 import ReactionSelector from "./reaction/ReactionButton";
 import FlyingReaction from "./reaction/FlyingReaction";
@@ -29,9 +28,9 @@ import {
 import { shortcuts } from "@/constants";
 
 const Live = ({ canvasRef, undo, redo }: LiveProps) => {
-  const others = useOthers();
 
-  const [{ cursor }, updateMyPresence] = useMyPresence() as any;
+
+  const [{ cursor }, updateMyPresence] = useMyPresence();
 
   const [cursorState, setCursorState] = useState<CursorState>({
     mode: CursorMode.Hidden,
@@ -68,7 +67,7 @@ const Live = ({ canvasRef, undo, redo }: LiveProps) => {
   }, 100);
 
   useEventListener((eventData) => {
-    const event = eventData.event as ReactionEvent;
+    const event = eventData.event;
 
     setReaction((prev) =>
       prev.concat([
@@ -218,7 +217,7 @@ const Live = ({ canvasRef, undo, redo }: LiveProps) => {
         {cursorState.mode === CursorMode.ReactionSelector && (
           <ReactionSelector setReaction={setReactions} />
         )}
-        <LiveCursors others={others} />
+        <LiveCursors />
 
         {/* <Comments /> */}
       </ContextMenuTrigger>
