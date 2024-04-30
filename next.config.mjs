@@ -12,7 +12,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "liveblocks.io", port: "" },
-    ],
+    ]
   },
 
   typescript: { ignoreBuildErrors: true },
