@@ -200,4 +200,6 @@ export type CursorProps = {
 
 export type LiveProps = {
   canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+  undo: () => void;
+  redo: () => void;
 };
