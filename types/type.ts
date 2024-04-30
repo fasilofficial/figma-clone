@@ -197,3 +197,7 @@ export type CursorProps = {
   y: number;
   message: string;
 };
+
+export type LiveProps = {
+  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+};
